@@ -2,7 +2,7 @@ package com.pe.nttdata.business.impl;
 
 import com.pe.nttdata.business.BancoService;
 import com.pe.nttdata.model.entity.Activo;
-import com.pe.nttdata.model.entity.Moviento;
+import com.pe.nttdata.model.entity.Movimiento;
 import com.pe.nttdata.model.entity.Pasivo;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
@@ -122,15 +122,15 @@ public class BancoServiceImpl implements BancoService {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Mono}&lt;{@link Moviento}&gt;
+   * @return {@link Mono}&lt;{@link Movimiento}&gt;
    * @see Mono
    * @see Activo
    */
   @Override
-  public Flux<Moviento> getAllMovBank() {
+  public Flux<Movimiento> getAllMovBank() {
     return this.webClient.get().uri("/moviento/api/v1/all")
             .retrieve()
-            .bodyToFlux(Moviento.class);
+            .bodyToFlux(Movimiento.class);
   }
 
   /**

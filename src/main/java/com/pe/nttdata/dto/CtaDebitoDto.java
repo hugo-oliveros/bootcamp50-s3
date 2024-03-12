@@ -3,7 +3,7 @@ package com.pe.nttdata.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pe.nttdata.model.entity.CtaDebido;
-import com.pe.nttdata.model.entity.Personal;
+import com.pe.nttdata.model.entity.Persona;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +12,6 @@ import lombok.ToString;
 
 
 /**
- *Implement CtaDebditoDto. <br/>
  *<b>Class</b>: {@link CtaDebitoDto}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
@@ -37,7 +36,7 @@ import lombok.ToString;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CtaDebitoDto {
 
-  private Personal personal;
+  private Persona persona;
   private CtaDebido ctaDebido;
 
 }

@@ -4,7 +4,7 @@ import com.pe.nttdata.business.FuncionesService;
 import com.pe.nttdata.dto.ParametroDto;
 import com.pe.nttdata.dto.SaldoDto;
 import com.pe.nttdata.model.entity.Activo;
-import com.pe.nttdata.model.entity.Moviento;
+import com.pe.nttdata.model.entity.Movimiento;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +54,8 @@ public class FuncionesController {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Flux}&lt;{@link Moviento}&gt;
-   * @see Moviento
+   * @return {@link Flux}&lt;{@link Movimiento}&gt;
+   * @see Movimiento
    * @see Flux
    */
   @PostMapping(value = "/consolidadoCliente")
@@ -69,8 +69,8 @@ public class FuncionesController {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Flux}&lt;{@link Moviento}&gt;
-   * @see Moviento
+   * @return {@link Flux}&lt;{@link Movimiento}&gt;
+   * @see Movimiento
    * @see Flux
    */
   @PostMapping(value = "/verificarDeuda")
@@ -84,8 +84,8 @@ public class FuncionesController {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Flux}&lt;{@link Moviento}&gt;
-   * @see Moviento
+   * @return {@link Flux}&lt;{@link Movimiento}&gt;
+   * @see Movimiento
    * @see Flux
    */
   @PostMapping(value = "/consultarSaldoPrincipal")
@@ -95,7 +95,7 @@ public class FuncionesController {
   }
 
 
-  public String idReturn(Moviento mov) {
+  public String idReturn(Movimiento mov) {
     return mov.getId().toString();
   }
 

@@ -5,7 +5,7 @@ import com.pe.nttdata.business.FuncionesService;
 import com.pe.nttdata.dto.ParametroDto;
 import com.pe.nttdata.dto.SaldoDto;
 import com.pe.nttdata.model.entity.Activo;
-import com.pe.nttdata.model.entity.Moviento;
+import com.pe.nttdata.model.entity.Movimiento;
 import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class FuncionesServiceImpl implements FuncionesService {
    * Flux all elements from Flux passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Flux}&lt;{@link Moviento}&gt;
+   * @return {@link Flux}&lt;{@link Movimiento}&gt;
    * @see String
    * @see Flux
    */

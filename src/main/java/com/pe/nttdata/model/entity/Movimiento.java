@@ -15,6 +15,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ *<b>Class</b>: {@link Movimiento}<br/>
+ *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
+ *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
+ *
+ *@author NTTDATA Per&uacute;. (EVE) <br/>
+ *<u>Developed by</u>: <br/>
+ *<ul>
+ *<li>Hugo Oliveros Monti</li>
+ *</ul>
+ *<u>Changes</u>:<br/>
+ *<ul>
+ *<li>feb. 29, 2024 (acronym) Creation class.</li>
+ *</ul>
+ *@version 1.0
+ */
 @Document(collection = "Movimiento")
 @Data
 @AllArgsConstructor
@@ -23,7 +39,7 @@ import java.util.Date;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Moviento extends BaseDomain implements Serializable {
+public class Movimiento extends BaseDomain implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

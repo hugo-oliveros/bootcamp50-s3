@@ -14,6 +14,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 
+/**
+ *<b>Class</b>: {@link Activo}<br/>
+ *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
+ *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
+ *
+ *@author NTTDATA Per&uacute;. (EVE) <br/>
+ *<u>Developed by</u>: <br/>
+ *<ul>
+ *<li>Hugo Oliveros Monti</li>
+ *</ul>
+ *<u>Changes</u>:<br/>
+ *<ul>
+ *<li>feb. 29, 2024 (acronym) Creation class.</li>
+ *</ul>
+ *@version 1.0
+ */
 @Document(collection = "Activo")
 @Data
 @AllArgsConstructor

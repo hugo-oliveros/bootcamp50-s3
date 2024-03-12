@@ -18,7 +18,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 /**
- *Implement CtaDebido. <br/>
  *<b>Class</b>: {@link CtaDebido}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>

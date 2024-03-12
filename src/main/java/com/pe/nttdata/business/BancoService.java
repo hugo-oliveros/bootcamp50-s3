@@ -1,7 +1,7 @@
 package com.pe.nttdata.business;
 
 import com.pe.nttdata.model.entity.Activo;
-import com.pe.nttdata.model.entity.Moviento;
+import com.pe.nttdata.model.entity.Movimiento;
 import com.pe.nttdata.model.entity.Pasivo;
 import javax.validation.constraints.NotNull;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public interface BancoService {
 
   public Mono<Activo> updateStatusActivo(@RequestBody @NotNull String id);
 
-  public Flux<Moviento> getAllMovBank();
+  public Flux<Movimiento> getAllMovBank();
 
   public Mono<Pasivo> aperturaBusinessCtaRest(@RequestBody @NotNull Activo activo);
 

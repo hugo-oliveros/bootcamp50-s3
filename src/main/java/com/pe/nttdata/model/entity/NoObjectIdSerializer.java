@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 
 /**
- *Implement NoObjectIdSerializer. <br/>
  *<b>Class</b>: {@link NoObjectIdSerializer}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>

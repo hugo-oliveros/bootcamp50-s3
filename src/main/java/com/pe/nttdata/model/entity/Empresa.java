@@ -16,7 +16,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 /**
- *Implement Empresa. <br/>
  *<b>Class</b>: {@link Empresa}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
