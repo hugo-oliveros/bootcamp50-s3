@@ -32,7 +32,7 @@ public enum ProductoEnum {
                 return e;
             }
         }
-        throw new RuntimeException(value);
+        throw new IllegalArgumentException(value);
     }
 
     @Override

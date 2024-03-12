@@ -31,6 +31,11 @@ public class DateUtils {
   public static final String DATE_TIME_FORMAT_RESOURCES = "yyyy-MM-dd HH:mm";
 
 
+  private DateUtils() {
+    throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+  }
+
+
   /**
    * <p/>
    * .

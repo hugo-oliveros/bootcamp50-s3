@@ -57,11 +57,6 @@ public class Moviento extends BaseDomain implements Serializable {
     /**
      *.
      **/
-    private double moviento;
-
-    /**
-     *.
-     **/
     private Date fechaMovi;
 
     /**

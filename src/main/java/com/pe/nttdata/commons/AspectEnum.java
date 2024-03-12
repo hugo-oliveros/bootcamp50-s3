@@ -34,7 +34,7 @@ public enum AspectEnum {
                 return e;
             }
         }
-        throw new RuntimeException(value);
+        throw new IllegalArgumentException(value);
     }
 
     @Override

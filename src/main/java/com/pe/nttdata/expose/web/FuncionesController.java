@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 
 
 /**
- *Implement VipPymeController. <br/>
+ *Implement FuncionesController. <br/>
  *<b>Class</b>: {@link FuncionesController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
@@ -94,10 +94,6 @@ public class FuncionesController {
   public Mono<SaldoDto> consultarSaldoPrincipal(@RequestBody @NotNull final ParametroDto param) {
     return funcionesService.consultarSaldo(param);
   }
-
-
-
-
 
 
   public String idReturn(Moviento mov) {

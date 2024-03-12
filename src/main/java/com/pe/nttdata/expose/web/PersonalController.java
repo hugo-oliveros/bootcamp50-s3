@@ -1,6 +1,7 @@
 package com.pe.nttdata.expose.web;
 
 import com.pe.nttdata.dao.PersonalDao;
+import com.pe.nttdata.dto.PersonalDto;
 import com.pe.nttdata.model.entity.Empresarial;
 import com.pe.nttdata.model.entity.Personal;
 import javax.validation.constraints.NotNull;
@@ -94,8 +95,8 @@ public class PersonalController {
           consumes = MediaType.APPLICATION_JSON_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Personal> save(final @RequestBody @NotNull Personal personal) {
-    return personalDao.save(personal);
+  public Mono<Personal> save(final @RequestBody @NotNull PersonalDto personal) {
+    return personalDao.save(personal.getPersonal());
   }
 
   /**

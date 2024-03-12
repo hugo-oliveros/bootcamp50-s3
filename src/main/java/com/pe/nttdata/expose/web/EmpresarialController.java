@@ -1,8 +1,8 @@
 package com.pe.nttdata.expose.web;
 
-
-import com.pe.nttdata.model.entity.Empresarial;
 import com.pe.nttdata.business.EmpresarialService;
+import com.pe.nttdata.dto.EmpresarialDto;
+import com.pe.nttdata.model.entity.Empresarial;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,8 +98,8 @@ public class EmpresarialController {
           consumes = MediaType.APPLICATION_JSON_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Empresarial> save(@RequestBody @NotNull final Empresarial empresarial) {
-    return empresa.save(empresarial);
+  public Mono<Empresarial> save(@RequestBody @NotNull final EmpresarialDto empresarial) {
+    return empresa.save(empresarial.getEmpresarial());
   }
 
   /**

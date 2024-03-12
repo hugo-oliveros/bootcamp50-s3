@@ -48,9 +48,7 @@ public class LoggingAspect {
   @Value("${user.aplicationName}")
   private String aplicatiobName;
 
-  private final int maxCharOutput = 3950;
   private final List<Object> listaParametros = new ArrayList<>();
-  private String parametros;
 
   private AppProcesoLogDto logSystem = AppProcesoLogDto.builder().build();
 
@@ -76,14 +74,14 @@ public class LoggingAspect {
         }
       });
 
-      if (listaParametros != null && !listaParametros.isEmpty()) {
+      if (!listaParametros.isEmpty()) {
         ObjectMapper mapperEntrada = new ObjectMapper();
         mapperEntrada.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        parametros = mapperEntrada
+        String parametros = mapperEntrada
                 .writerWithDefaultPrettyPrinter()
                 .writeValueAsString(listaParametros);
-        if (parametros.length() >= maxCharOutput) {
-          parametros = parametros.substring(0, maxCharOutput);
+        if (parametros.length() >= 3950) {
+          parametros = parametros.substring(0, 3950);
         }
 
         logSystem.setParametroEntrada(parametros);
@@ -100,14 +98,10 @@ public class LoggingAspect {
     try {
 
       if (joinPoint.proceed() instanceof Mono) { //if Mono
-        return Mono.from(((Mono<?>) joinPoint.proceed()).doOnNext(response -> {
-          getProcees(joinPoint, response);
-        }));
+        return Mono.from(((Mono<?>) joinPoint.proceed()).doOnNext(response -> getProcees(joinPoint, response)));
 
       } else { //if Flux
-        return Flux.from(((Flux<?>) joinPoint.proceed()).doOnNext(response -> {
-          getProcees(joinPoint, response);
-        }));
+        return Flux.from(((Flux<?>) joinPoint.proceed()).doOnNext(response -> getProcees(joinPoint, response)));
 
       }
 
@@ -115,7 +109,6 @@ public class LoggingAspect {
       log.error("Log logExecutionTime - exception {},", e.getMessage());
     } catch (Throwable e) {
       log.error("Log logExecutionTime - ** endProcess Error {} ** ", logSystem.toString());
-      throw new RuntimeException(e);
     }
 
     return null;

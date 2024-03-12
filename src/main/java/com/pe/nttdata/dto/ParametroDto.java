@@ -13,6 +13,7 @@ import lombok.ToString;
 @ToString
 public class ParametroDto {
 
-    private String DNI;
+    private String dni;
+    private String ruc;
 
 }

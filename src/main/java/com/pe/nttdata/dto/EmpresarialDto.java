@@ -1,7 +1,9 @@
 package com.pe.nttdata.dto;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.pe.nttdata.model.entity.Empresarial;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +12,8 @@ import lombok.ToString;
 
 
 /**
- *Implement SaldoDto. <br/>
- *<b>Class</b>: {@link SaldoDto}<br/>
+ *Implement EmpresarialDto. <br/>
+ *<b>Class</b>: {@link EmpresarialDto}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -33,11 +35,8 @@ import lombok.ToString;
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SaldoDto {
+public class EmpresarialDto {
 
-  private String type;
-  private String numberAccount;
-  private String descri;
-  private double saldoPrincipal;
+  private Empresarial empresarial;
 
 }

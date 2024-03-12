@@ -21,6 +21,10 @@ import com.google.gson.Gson;
  */
 public class MapperUtils {
 
+  private MapperUtils() {
+    //not called
+  }
+
   /**
    * Converts a source object to a destination with fields with the same name.
    *
