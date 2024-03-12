@@ -9,8 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Interface BancoService. <br/>
- *<b>Class</b>: {@link BancoService}<br/>
+ *<b>Interface</b>: {@link BancoService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *

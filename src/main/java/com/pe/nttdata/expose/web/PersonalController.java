@@ -1,6 +1,6 @@
 package com.pe.nttdata.expose.web;
 
-import com.pe.nttdata.dao.PersonalDao;
+import com.pe.nttdata.business.PersonalService;
 import com.pe.nttdata.dto.PersonalDto;
 import com.pe.nttdata.model.entity.Empresarial;
 import com.pe.nttdata.model.entity.Personal;
@@ -48,7 +48,7 @@ public class PersonalController {
    * PersonalService personalService
    **/
   @Autowired
-  private PersonalDao personalDao;
+  private PersonalService personalService;
 
   /**
    * </p>
@@ -61,7 +61,7 @@ public class PersonalController {
   @GetMapping(value = "/all")
   @ResponseStatus(HttpStatus.OK)
   public Flux<Personal> getAll() {
-    return personalDao.findAll();
+    return personalService.findAll();
   }
 
   /**
@@ -77,7 +77,7 @@ public class PersonalController {
   @GetMapping(value = "/find/{id}")
   @ResponseStatus(HttpStatus.OK)
   public Mono<Personal> find(final @PathVariable("id") @NotNull String id) {
-    return personalDao.findById(id);
+    return personalService.findById(id);
   }
 
   /**
@@ -95,7 +95,7 @@ public class PersonalController {
           produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
   public Mono<Personal> save(final @RequestBody @NotNull PersonalDto personal) {
-    return personalDao.save(personal.getPersonal());
+    return personalService.save(personal.getPersonal());
   }
 
   /**
@@ -112,7 +112,7 @@ public class PersonalController {
   @DeleteMapping(value = "/delete/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public Mono<Void> delete(final @PathVariable("id") @NotNull String id) {
-    return personalDao.deleteById(id);
+    return personalService.deleteById(id);
   }
 
 }

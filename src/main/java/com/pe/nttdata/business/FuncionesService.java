@@ -7,8 +7,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Interface FuncionesService. <br/>
- *<b>Class</b>: {@link FuncionesService}<br/>
+ *<b>Interface</b>: {@link FuncionesService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *

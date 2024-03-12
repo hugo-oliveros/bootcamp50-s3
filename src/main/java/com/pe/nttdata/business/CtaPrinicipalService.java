@@ -1,11 +1,11 @@
 package com.pe.nttdata.business;
 
-import com.pe.nttdata.model.entity.Empresarial;
+import com.pe.nttdata.model.entity.CtaPrincipal;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *<b>Interface</b>: {@link EmpresarialService}<br/>
+ *<b>Interface</b>: {@link CtaPrinicipalService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -20,14 +20,16 @@ import reactor.core.publisher.Mono;
  *</ul>
  *@version 1.0
  */
-public interface EmpresarialService {
+public interface CtaPrinicipalService {
 
-  public Flux<Empresarial> findAll();
+  public Flux<CtaPrincipal> findAll();
 
-  public Mono<Empresarial> findById(String id);
+  public Mono<CtaPrincipal> findById(String id);
 
-  public Mono<Empresarial> save(Empresarial empresa);
+  public Mono<CtaPrincipal> save(CtaPrincipal ctaPrincipal);
 
-  public Mono<Void> deleteById(String id);
+  public  Mono<CtaPrincipal> update(final String id, final CtaPrincipal ctaPrincipal);
+
+  Mono<Void> deleteById(String id);
 
 }

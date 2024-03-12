@@ -15,7 +15,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Implement BancoService. <br/>
  *<b>Class</b>: {@link BancoServiceImpl}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>

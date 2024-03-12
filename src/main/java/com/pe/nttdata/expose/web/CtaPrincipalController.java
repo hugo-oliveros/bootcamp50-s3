@@ -1,8 +1,8 @@
 package com.pe.nttdata.expose.web;
 
-import com.pe.nttdata.business.CtaDebidoService;
-import com.pe.nttdata.dto.CtaDebitoDto;
-import com.pe.nttdata.model.entity.CtaDebido;
+import com.pe.nttdata.business.CtaPrinicipalService;
+import com.pe.nttdata.dto.CtaPrincipalDto;
+import com.pe.nttdata.model.entity.CtaPrincipal;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *<b>Class</b>: {@link CtaDebitoController}<br/>
+ *<b>Class</b>: {@link CtaPrincipalController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -37,17 +37,17 @@ import reactor.core.publisher.Mono;
  *@version 1.0
  */
 @RestController
-@RequestMapping("ctadebito/api/v1")
+@RequestMapping("ctaprincipal/api/v1")
 @CrossOrigin("*")
 @Slf4j
-public class CtaDebitoController {
+public class CtaPrincipalController {
 
   /**
    * .
-   * CtaDebitoDao ctaDebitoDao
+   * CtaPrincipalController ctaPrincipalDao
    **/
   @Autowired
-  private CtaDebidoService ctaDebidoService;
+  private CtaPrinicipalService ctaPrinicipalService;
 
   /**
    * </p>
@@ -59,8 +59,8 @@ public class CtaDebitoController {
    **/
   @GetMapping(value = "/all")
   @ResponseStatus(HttpStatus.OK)
-  public Flux<CtaDebido> getAll() {
-    return ctaDebidoService.findAll();
+  public Flux<CtaPrincipal> getAll() {
+    return ctaPrinicipalService.findAll();
   }
 
   /**
@@ -69,14 +69,14 @@ public class CtaDebitoController {
    * reactivate Flux passing the id as a parameter.
    *
    * @param id {@link String}
-   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
+   * @return {@link Mono}&lt;{@link CtaPrincipalDto}&gt;
    * @see String
    * @see Mono
    */
   @GetMapping(value = "/find/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public Mono<CtaDebido> find(final @PathVariable("id") @NotNull String id) {
-    return ctaDebidoService.findById(id);
+  public Mono<CtaPrincipal> find(final @PathVariable("id") @NotNull String id) {
+    return ctaPrinicipalService.findById(id);
   }
 
   /**
@@ -84,8 +84,8 @@ public class CtaDebitoController {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @param ctadebito {@link CtaDebitoDto}
-   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
+   * @param ctaPrincipalDto {@link CtaPrincipalDto}
+   * @return {@link Mono}&lt;{@link CtaPrincipalDto}&gt;
    * @see String
    * @see Mono
    */
@@ -93,8 +93,8 @@ public class CtaDebitoController {
           consumes = MediaType.APPLICATION_JSON_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<CtaDebido> save(final @RequestBody @NotNull CtaDebitoDto ctadebito) {
-    return ctaDebidoService.save(ctadebito.getCtaDebido());
+  public Mono<CtaPrincipal> save(final @RequestBody @NotNull CtaPrincipalDto ctaPrincipalDto) {
+    return ctaPrinicipalService.save(ctaPrincipalDto.getCtaPrincipal());
   }
 
   /**
@@ -111,7 +111,7 @@ public class CtaDebitoController {
   @DeleteMapping(value = "/delete/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public Mono<Void> delete(final @PathVariable("id") @NotNull String id) {
-    return ctaDebidoService.deleteById(id);
+    return ctaPrinicipalService.deleteById(id);
   }
 
 }

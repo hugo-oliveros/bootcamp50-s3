@@ -5,8 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Interface PersonalService. <br/>
- *<b>Class</b>: {@link PersonalService}<br/>
+ *<b>Interface</b>: {@link PersonalService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *

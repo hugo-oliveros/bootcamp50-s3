@@ -2,25 +2,16 @@ package com.pe.nttdata.business.impl;
 
 import com.pe.nttdata.business.CtaDebidoService;
 import com.pe.nttdata.dao.CtaDebitoDao;
-import com.pe.nttdata.model.entity.*;
-
-import javax.validation.constraints.NotNull;
-
+import com.pe.nttdata.model.entity.CtaDebido;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
-
 /**
- *Implement BancoService. <br/>
  *<b>Class</b>: {@link CtaDebitoImpl}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
@@ -65,8 +56,8 @@ public class CtaDebitoImpl implements CtaDebidoService {
    * reactivate Flux passing the id as a parameter.
    *
    * @param id {@link String}
-   * @param ctadebito {@link Personal}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
+   * @param ctadebito {@link CtaDebido}
+   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Mono
    */

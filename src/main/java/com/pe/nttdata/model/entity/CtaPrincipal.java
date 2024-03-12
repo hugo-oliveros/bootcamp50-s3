@@ -1,17 +1,21 @@
-package com.pe.nttdata.dto;
+package com.pe.nttdata.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.pe.nttdata.model.entity.CtaDebido;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.pe.nttdata.model.domain.BaseDomain;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- *<b>Class</b>: {@link CtaDebitoDto}<br/>
+ *<b>Class</b>: {@link CtaPrincipal}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -26,16 +30,24 @@ import lombok.ToString;
  *</ul>
  *@version 1.0
  */
+@Document(collection = "CtaPrincipal")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @ToString
+@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CtaDebitoDto {
+public class CtaPrincipal extends BaseDomain implements Serializable {
 
+  private static final long serialVersionUID = 1L;
 
-  private CtaDebido ctaDebido;
+  @Id
+  @JsonSerialize(using = NoObjectIdSerializer.class)
+  private ObjectId id;
+
+  private String descrip;
+  private String mainAccountNumber;
+  private Double totalAmount;
 
 }

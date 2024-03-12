@@ -5,8 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Interface CtaDebidoService. <br/>
- *<b>Class</b>: {@link CtaDebidoService}<br/>
+ *<b>Interface</b>: {@link CtaDebidoService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
