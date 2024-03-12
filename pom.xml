@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pe.nttdata</groupId>
-    <artifactId>nttdataBackendS2</artifactId>
+    <artifactId>nttdataBackendS3</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>nttdataBackendS2</name>
-    <description>Semanal N° 2</description>
+    <name>nttdataBackendS3</name>
+    <description>Semanal N° 3</description>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

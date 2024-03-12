@@ -27,6 +27,8 @@ import reactor.core.publisher.Mono;
  */
 public interface BancoService {
 
+  public Flux<Activo> getActivos();
+
   public Mono<Activo> checkExitPersonalCtaRest(@RequestBody @NotNull String dni);
 
   public Mono<Activo> checkExitEmpresarialCtaRest(@RequestBody @NotNull String ruc);

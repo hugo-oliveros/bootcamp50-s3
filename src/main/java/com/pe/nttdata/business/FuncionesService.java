@@ -1,14 +1,14 @@
 package com.pe.nttdata.business;
 
-import com.pe.nttdata.model.entity.Empresarial;
-import com.pe.nttdata.model.entity.Moviento;
-import com.pe.nttdata.model.entity.Personal;
+import com.pe.nttdata.dto.ParametroDto;
+import com.pe.nttdata.dto.SaldoDto;
+import com.pe.nttdata.model.entity.Activo;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *Interface VipPymeService. <br/>
- *<b>Class</b>: {@link VipPymeService}<br/>
+ *Interface FuncionesService. <br/>
+ *<b>Class</b>: {@link FuncionesService}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -23,12 +23,12 @@ import reactor.core.publisher.Mono;
  *</ul>
  *@version 1.0
  */
-public interface VipPymeService {
+public interface FuncionesService {
 
-  public Mono<Personal> saveVipVerify(Personal personal);
+  public Flux<Activo> getAllActivos(ParametroDto param);
 
-  public Mono<Empresarial> savePymeVerify(Empresarial empresarial);
+  public Mono<Activo> checkDeuda(ParametroDto param);
 
-  public Flux<Moviento> getAllMovientoBank();
+  public Mono<SaldoDto> consultarSaldo(ParametroDto param);
 
 }

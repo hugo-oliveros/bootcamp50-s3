@@ -50,6 +50,22 @@ public class BancoServiceImpl implements BancoService {
 
   /**
    * <p/>
+   * Flux all elements from Flux passing for
+   * reactivate Flux passing the id as a parameter.
+   *
+   * @return {@link Flux}&lt;{@link Flux}&gt;
+   * @see Flux
+   * @see Activo
+   */
+  @Override
+  public Flux<Activo> getActivos() {
+    return this.webClient.get().uri("/activo/api/v1/all")
+            .retrieve()
+            .bodyToFlux(Activo.class);
+  }
+
+  /**
+   * <p/>
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *

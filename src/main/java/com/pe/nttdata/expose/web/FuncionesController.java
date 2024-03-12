@@ -1,16 +1,15 @@
 package com.pe.nttdata.expose.web;
 
-import com.pe.nttdata.business.VipPymeService;
-import com.pe.nttdata.model.entity.Empresarial;
+import com.pe.nttdata.business.FuncionesService;
+import com.pe.nttdata.dto.ParametroDto;
+import com.pe.nttdata.dto.SaldoDto;
+import com.pe.nttdata.model.entity.Activo;
 import com.pe.nttdata.model.entity.Moviento;
-import com.pe.nttdata.model.entity.Personal;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ import reactor.core.publisher.Mono;
 
 /**
  *Implement VipPymeController. <br/>
- *<b>Class</b>: {@link VipPymeController}<br/>
+ *<b>Class</b>: {@link FuncionesController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -38,53 +37,17 @@ import reactor.core.publisher.Mono;
  *@version 1.0
  */
 @RestController
-@RequestMapping("vipyme/api/v1")
+@RequestMapping("funciones/api/v1")
 @CrossOrigin("*")
 @Slf4j
-public class VipPymeController {
+public class FuncionesController {
 
   /**
    * .
    * VipPymeService vipPymeService
    **/
   @Autowired
-  private VipPymeService vipPymeService;
-
-  /**
-   * <p/>
-   * Flux all elements from Mongo passing for
-   * reactivate Flux passing the id as a parameter.
-   *
-   * @param personal {@link Personal}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
-   * @see String
-   * @see Mono
-   */
-  @PostMapping(path = "/saveVip",
-          consumes = MediaType.APPLICATION_JSON_VALUE,
-          produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Personal> save(@RequestBody @NotNull final Personal personal) {
-    return vipPymeService.saveVipVerify(personal);
-  }
-
-  /**
-   * <p/>
-   * Flux all elements from Mongo passing for
-   * reactivate Flux passing the id as a parameter.
-   *
-   * @param empresarial {@link Empresarial}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
-   * @see String
-   * @see Mono
-   */
-  @PostMapping(path = "/savePyme",
-          consumes = MediaType.APPLICATION_JSON_VALUE,
-          produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Empresarial> save(@RequestBody @NotNull final Empresarial empresarial) {
-    return vipPymeService.savePymeVerify(empresarial);
-  }
+  private FuncionesService funcionesService;
 
 
   /**
@@ -96,12 +59,11 @@ public class VipPymeController {
    * @see Moviento
    * @see Flux
    */
-  @GetMapping(value = "/allMovBank")
+  @PostMapping(value = "/consolidadoCliente")
   @ResponseStatus(HttpStatus.OK)
-  public Flux<Moviento> getAllMovBack() {
-    return vipPymeService.getAllMovientoBank();
+  public Flux<Activo> getAllMovBack(@RequestBody @NotNull final ParametroDto param) {
+    return funcionesService.getAllActivos(param);
   }
-
 
   /**
    * <p/>
@@ -112,15 +74,30 @@ public class VipPymeController {
    * @see Moviento
    * @see Flux
    */
-  @GetMapping(value = "/totalMovBank")
+  @PostMapping(value = "/verificarDeuda")
   @ResponseStatus(HttpStatus.OK)
-  public Flux<Moviento> totalMovBank() {
-    return vipPymeService.getAllMovientoBank()
-            .groupBy(Moviento::getNumberAccount)
-            .flatMap(f -> {
-              return f;
-            });
+  public Mono<Activo> verificarDeuda(@RequestBody @NotNull final ParametroDto param) {
+    return funcionesService.checkDeuda(param);
   }
+
+  /**
+   * <p/>
+   * Flux all elements from Mongo passing for
+   * reactivate Flux passing the id as a parameter.
+   *
+   * @return {@link Flux}&lt;{@link Moviento}&gt;
+   * @see Moviento
+   * @see Flux
+   */
+  @PostMapping(value = "/consultarSaldoPrincipal")
+  @ResponseStatus(HttpStatus.OK)
+  public Mono<SaldoDto> consultarSaldoPrincipal(@RequestBody @NotNull final ParametroDto param) {
+    return funcionesService.consultarSaldo(param);
+  }
+
+
+
+
 
 
   public String idReturn(Moviento mov) {
