@@ -1,9 +1,8 @@
 package com.pe.nttdata.expose.web;
 
-import com.pe.nttdata.dao.PersonalDao;
-import com.pe.nttdata.dto.PersonalDto;
-import com.pe.nttdata.model.entity.Empresarial;
-import com.pe.nttdata.model.entity.Personal;
+import com.pe.nttdata.dao.CtaDebitoDao;
+import com.pe.nttdata.dto.CtaDebitoDto;
+import com.pe.nttdata.model.entity.CtaDebido;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *<b>Class</b>: {@link PersonalController}<br/>
+ *<b>Class</b>: {@link CtaDebitoController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -38,17 +37,17 @@ import reactor.core.publisher.Mono;
  *@version 1.0
  */
 @RestController
-@RequestMapping("personal/api/v1")
+@RequestMapping("ctadebito/api/v1")
 @CrossOrigin("*")
 @Slf4j
-public class PersonalController {
+public class CtaDebitoController {
 
   /**
    * .
    * PersonalService personalService
    **/
   @Autowired
-  private PersonalDao personalDao;
+  private CtaDebitoDao ctaDebitoDao;
 
   /**
    * </p>
@@ -60,8 +59,8 @@ public class PersonalController {
    **/
   @GetMapping(value = "/all")
   @ResponseStatus(HttpStatus.OK)
-  public Flux<Personal> getAll() {
-    return personalDao.findAll();
+  public Flux<CtaDebido> getAll() {
+    return ctaDebitoDao.findAll();
   }
 
   /**
@@ -70,14 +69,14 @@ public class PersonalController {
    * reactivate Flux passing the id as a parameter.
    *
    * @param id {@link String}
-   * @return {@link Mono}&lt;{@link Empresarial}&gt;
+   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Mono
    */
   @GetMapping(value = "/find/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public Mono<Personal> find(final @PathVariable("id") @NotNull String id) {
-    return personalDao.findById(id);
+  public Mono<CtaDebido> find(final @PathVariable("id") @NotNull String id) {
+    return ctaDebitoDao.findById(id);
   }
 
   /**
@@ -85,8 +84,8 @@ public class PersonalController {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @param personal {@link Personal}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
+   * @param ctadebito {@link CtaDebitoDto}
+   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Mono
    */
@@ -94,8 +93,8 @@ public class PersonalController {
           consumes = MediaType.APPLICATION_JSON_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Personal> save(final @RequestBody @NotNull PersonalDto personal) {
-    return personalDao.save(personal.getPersonal());
+  public Mono<CtaDebido> save(final @RequestBody @NotNull CtaDebitoDto ctadebito) {
+    return ctaDebitoDao.save(ctadebito.getCtaDebido());
   }
 
   /**
@@ -104,7 +103,7 @@ public class PersonalController {
    * reactivate Flux passing the id as a parameter.
    *
    * @param id {@link String}
-   * @return {@link Mono}&lt;{@link Empresarial}&gt;
+   * @return {@link Mono}&lt;{@link Void}&gt;
    * @see String
    * @see Mono
    * @see Void
@@ -112,7 +111,7 @@ public class PersonalController {
   @DeleteMapping(value = "/delete/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public Mono<Void> delete(final @PathVariable("id") @NotNull String id) {
-    return personalDao.deleteById(id);
+    return ctaDebitoDao.deleteById(id);
   }
 
 }

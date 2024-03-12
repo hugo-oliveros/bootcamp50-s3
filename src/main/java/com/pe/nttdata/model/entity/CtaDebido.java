@@ -1,5 +1,6 @@
 package com.pe.nttdata.model.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,9 +16,10 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 /**
- *Implement TarjetaCredito. <br/>
- *<b>Class</b>: {@link TarjetaCredito}<br/>
+ *Implement CtaDebido. <br/>
+ *<b>Class</b>: {@link CtaDebido}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -32,7 +34,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *</ul>
  *@version 1.0
  */
-@Document(collection = "Activos")
+@Document(collection = "CtaDebito")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,7 +42,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TarjetaCredito extends BaseDomain implements Serializable {
+public class CtaDebido extends BaseDomain implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -52,8 +54,7 @@ public class TarjetaCredito extends BaseDomain implements Serializable {
   private ObjectId id;
 
   private String type;
-  private BigDecimal montoConsumed;
-  private BigDecimal montoTotal;
+  private BigDecimal amountTotal;
   private String numberAccount;
 
 }

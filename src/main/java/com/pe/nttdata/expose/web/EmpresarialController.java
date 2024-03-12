@@ -22,7 +22,6 @@ import reactor.core.publisher.Mono;
 
 
 /**
- *Implement EmpresaRepository. <br/>
  *<b>Class</b>: {@link EmpresarialController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>

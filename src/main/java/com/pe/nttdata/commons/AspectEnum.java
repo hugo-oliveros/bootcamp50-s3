@@ -11,7 +11,6 @@ public enum AspectEnum {
     EXITO("1"),
     MENSAJEOK("OK");
 
-
     private String value;
 
     AspectEnum(String value) {

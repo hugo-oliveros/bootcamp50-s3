@@ -1,15 +1,15 @@
 package com.pe.nttdata.dao.impl;
 
-import com.pe.nttdata.dao.PersonalDao;
-import com.pe.nttdata.dao.repository.PersonalRepository;
-import com.pe.nttdata.model.entity.Personal;
+import com.pe.nttdata.dao.CtaDebitoDao;
+import com.pe.nttdata.dao.repository.CtaDebitoRepository;
+import com.pe.nttdata.model.entity.CtaDebido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- *<b>Class</b>: {@link PersonalDaoImpl}<br/>
+ *<b>Class</b>: {@link CtaDebitoDaoImpl}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
  *
@@ -25,23 +25,23 @@ import reactor.core.publisher.Mono;
  *@version 1.0
  */
 @Service
-public class PersonalDaoImpl implements PersonalDao {
+public class CtaDebitoDaoImpl implements CtaDebitoDao {
 
   @Autowired
-  private PersonalRepository personalRepository;
+  private CtaDebitoRepository ctaDebitoRepository;
 
   /**
    * <p/>
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @return {@link Flux}&lt;{@link Personal}&gt;
+   * @return {@link Flux}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Flux
    */
   @Override
-  public Flux<Personal> findAll() {
-    return personalRepository.findAll();
+  public Flux<CtaDebido> findAll() {
+    return ctaDebitoRepository.findAll();
   }
 
   /**
@@ -50,13 +50,13 @@ public class PersonalDaoImpl implements PersonalDao {
    * reactivate Flux passing the id as a parameter.
    *
    * @param id {@link String}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
+   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Mono
    */
   @Override
-  public Mono<Personal> findById(String id) {
-    return personalRepository.findById(id);
+  public Mono<CtaDebido> findById(String id) {
+    return ctaDebitoRepository.findById(id);
   }
 
   /**
@@ -64,14 +64,14 @@ public class PersonalDaoImpl implements PersonalDao {
    * Flux all elements from Mongo passing for
    * reactivate Flux passing the id as a parameter.
    *
-   * @param personal {@link String}
-   * @return {@link Mono}&lt;{@link Personal}&gt;
+   * @param ctadebito {@link String}
+   * @return {@link Mono}&lt;{@link CtaDebido}&gt;
    * @see String
    * @see Mono
    */
   @Override
-  public Mono<Personal> save(Personal personal) {
-    return personalRepository.save(personal);
+  public Mono<CtaDebido> save(CtaDebido ctadebito) {
+    return ctaDebitoRepository.save(ctadebito);
   }
 
   /**
@@ -87,7 +87,7 @@ public class PersonalDaoImpl implements PersonalDao {
    */
   @Override
   public Mono<Void> deleteById(String id) {
-    return personalRepository.deleteById(id);
+    return ctaDebitoRepository.deleteById(id);
   }
 
 }

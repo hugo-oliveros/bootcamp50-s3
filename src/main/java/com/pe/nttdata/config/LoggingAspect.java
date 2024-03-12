@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import javax.servlet.http.HttpServletRequest;
+
+import com.pe.nttdata.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -129,12 +131,12 @@ public class LoggingAspect {
     }
     logSystem.setDescripcionEstadoEjecucion(AspectEnum.MENSAJEOK.value());
     logSystem.setEstadoEjecucion(AspectEnum.EXITO.getValue());
-    logSystem.setFechaFinEjecucion(new java.util.Date());
+    logSystem.setFechaFinEjecucion(DateUtils.obtenerFechaHoraActual());
 
     final long executionTime = System.currentTimeMillis() - start;
     logSystem.setDuracionMs((int) executionTime);
     logSystem.setResultadoSalida(response.toString());
-    log.info("\u001B[33mLog logExecutionTime - ** \u001B[36m{} \u001B[33m** \u001B[0m", logSystem.toString());
+    log.info("\u001B[33mLog Execution - ** \u001B[36m{} \u001B[33m** \u001B[0m", logSystem.toString());
 
   }
 

@@ -20,7 +20,6 @@ import reactor.core.publisher.Mono;
 
 
 /**
- *Implement FuncionesController. <br/>
  *<b>Class</b>: {@link FuncionesController}<br/>
  *<b>Copyright</b>: &Copy; 2024 NTTDATA Per&uacute;. <br/>
  *<b>Company</b>: NTTDATA del Per&uacute;. <br/>
