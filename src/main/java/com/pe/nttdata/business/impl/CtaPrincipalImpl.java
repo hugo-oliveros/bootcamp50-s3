@@ -3,7 +3,6 @@ package com.pe.nttdata.business.impl;
 import com.pe.nttdata.business.CtaPrinicipalService;
 import com.pe.nttdata.dao.CtaPrincipalDao;
 import com.pe.nttdata.model.entity.CtaPrincipal;
-import com.pe.nttdata.util.MapperUtils;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -51,7 +50,6 @@ public class CtaPrincipalImpl implements CtaPrinicipalService {
   public Mono<CtaPrincipal> save(CtaPrincipal ctaPrincipal) {
     return Mono.from(findAll())
             .filter(f -> f.getMainAccountNumber().equals(ctaPrincipal.getMainAccountNumber()))
-            .map(m -> MapperUtils.mapper(CtaPrincipal.class, m))
             .flatMap(req -> {
               ctap = CtaPrincipal.builder().build();
               ctap.setDescrip("main account already exists.");

@@ -55,7 +55,7 @@ public class CtaDebido extends BaseDomain implements Serializable {
   private String type;
   private BigDecimal amountTotal;
   private String numberAccount;
-
   private Persona persona;
-
+  private CtaPrincipal ctaPrincipal;
+  private String descrip;
 }

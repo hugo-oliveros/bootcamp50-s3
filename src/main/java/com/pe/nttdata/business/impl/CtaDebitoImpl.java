@@ -2,6 +2,7 @@ package com.pe.nttdata.business.impl;
 
 import com.pe.nttdata.business.CtaDebidoService;
 import com.pe.nttdata.dao.CtaDebitoDao;
+import com.pe.nttdata.dao.CtaPrincipalDao;
 import com.pe.nttdata.model.entity.CtaDebido;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,11 @@ public class CtaDebitoImpl implements CtaDebidoService {
   @Autowired
   private CtaDebitoDao ctaDebitoDao;
 
+  @Autowired
+  private CtaPrincipalDao ctaPrincipalDao;
+
+  private CtaDebido ctadto;
+
   @Override
   public Flux<CtaDebido> findAll() {
     return ctaDebitoDao.findAll();
@@ -47,7 +53,34 @@ public class CtaDebitoImpl implements CtaDebidoService {
 
   @Override
   public Mono<CtaDebido> save(CtaDebido ctadebito) {
-    return ctaDebitoDao.save(ctadebito);
+    return Mono.from(findAll()
+            .filter(f -> f.getNumberAccount()
+                    .equals(ctadebito.getNumberAccount()))
+            .flatMap(req -> {
+              ctadto = CtaDebido.builder().build();
+              ctadto.setDescrip("The debit card already exists.");
+              return Mono.just(ctadto);
+            })
+            .onErrorResume(error -> {
+              ctadto = CtaDebido.builder().build();
+              ctadto.setDescrip("The user does not have an account created."
+                      + error);
+              return Mono.just(ctadto);
+            }).switchIfEmpty(Mono.defer(() -> {
+              return Mono.from(ctaPrincipalDao.findAll())
+                      .filter(f -> f.getMainAccountNumber()
+                              .equals(ctadebito.getCtaPrincipal().getMainAccountNumber()))
+                      .flatMap(req -> {
+                        return ctaDebitoDao.save(ctadebito);
+                      })
+                      .switchIfEmpty(
+                              Mono.defer(() -> {
+                                ctadto = CtaDebido.builder().build();
+                                ctadto.setDescrip("No existe la cta principal.");
+                                return Mono.just(ctadto);
+                              }
+                      ));
+            })));
   }
 
   /**

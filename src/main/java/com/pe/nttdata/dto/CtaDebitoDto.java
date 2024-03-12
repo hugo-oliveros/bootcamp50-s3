@@ -38,4 +38,5 @@ public class CtaDebitoDto {
 
   private CtaDebido ctaDebido;
 
+
 }
