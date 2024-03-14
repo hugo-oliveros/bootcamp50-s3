@@ -40,8 +40,6 @@ public class BancoServiceImpl implements BancoService {
    **/
   private final WebClient webClient;
 
-  @Value("${user.endpoints1}")
-  private String urlEndPoint;
 
   public BancoServiceImpl(WebClient.Builder webClientBuilder) {
     this.webClient = webClientBuilder.baseUrl("http://localhost:8085").build();
