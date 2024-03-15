@@ -6,7 +6,6 @@ import com.pe.nttdata.model.entity.Movimiento;
 import com.pe.nttdata.model.entity.Pasivo;
 import javax.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -42,7 +41,7 @@ public class BancoServiceImpl implements BancoService {
 
 
   public BancoServiceImpl(WebClient.Builder webClientBuilder) {
-    this.webClient = webClientBuilder.baseUrl("http://localhost:8085").build();
+    this.webClient = webClientBuilder.baseUrl("http://192.168.18.60:38303").build();
   }
 
   /**

@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
-import javax.servlet.http.HttpServletRequest;
-
 import com.pe.nttdata.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -69,8 +66,7 @@ public class LoggingAspect {
 
     try {
       Arrays.asList(joinPoint.getArgs()).forEach(req -> {
-        if (!(req instanceof HttpServletRequest
-                || req instanceof BindingResult
+        if (!( req instanceof BindingResult
                 || req instanceof UriComponentsBuilder)) {
           listaParametros.add(req);
         }
